@@ -12,7 +12,7 @@
 #include "Matrix.hpp"
 using namespace std;
 
-Vector genIniX(int size);
+//Vector genIniX(int size);
 
 Vector avgFunc(Matrix matrix_);
 
@@ -107,8 +107,9 @@ private:
     Vector actAvgReturn;
     Vector actCov;
     double AAR; //average of port returns
-    double vol;
-    double sharpe;
+    double CAAR;
+    double std;
+    double Sharpe;
     
 public:
 //    FTSE(){};
@@ -116,6 +117,9 @@ public:
     
     void backtest();
     double getAAR(){return AAR;};
+    double getCAAR(){return CAAR;};
+    double getStd(){return std;};
+    double getSharpe(){return Sharpe;};
     Vector getActAvgReturn(){return actAvgReturn;};
     Vector getActCov(){return actCov;};
     

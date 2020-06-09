@@ -8,18 +8,20 @@
 
 #include "assetsReturns.hpp"
 #include "Matrix.hpp"
+#include <cmath>
 
 using namespace std;
-Vector genIniX(int size){
-    Vector res(size);
-    double sum = 0.0;
-    for (int i = 0; i < size; i++){
-        res[i] = rand();
-        sum += res[i];
-    }
-    res = res/sum;
-    return res;
-}
+
+//Vector genIniX(int size){
+//    Vector res(size);
+//    double sum = 0.0;
+//    for (int i = 0; i < size; i++){
+//        res[i] = rand();
+//        sum += res[i];
+//    }
+//    res = res/sum;
+//    return res;
+//}
 
 Vector avgFunc(Matrix matrix_)
 {
@@ -211,11 +213,21 @@ void IS::weightSolver(double epsilon)
 void FTSE::backtest()
 {
     AAR = 0.0;
+    CAAR = 0.0;
+    double var = 0.0;
     for (int i = 0; i < rollingTimes; i++){
         actAvgReturn.push_back(weights[i] * oosMean[i]);
         AAR = (i * AAR + weights[i] * oosMean[i])/ (i+1);
+        CAAR += weights[i] * oosMean[i];
         actCov.push_back(weights[i] * (oosCovariance[i] * weights[i]));
     }
+    
+    for (int j = 0; j < rollingTimes; j++){
+        var += pow((weights[j] * oosMean[j] - AAR), 2.0);
+    }
+    std = sqrt(var/rollingTimes);
+    Sharpe = AAR/std;
+    
     
 };
 

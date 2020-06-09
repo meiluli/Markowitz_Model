@@ -17,11 +17,9 @@
 
 using namespace std;
 
-
-
 int main() {
     remove("results.csv");
-    srand(time(NULL));
+//    srand(time(NULL));
     int numberAssets=83;
     int numberReturns=700;
     Matrix returnMatrix; // a matrix to store the return data
@@ -73,13 +71,14 @@ int main() {
         onePort.calIsMean();
         onePort.calIsCovariance();
         onePort.calIsQ();
-        x = genIniX(numberAssets);
         onePort.weightSolver(epsilon);
         onePort.backtest();
         portfolios.push_back(onePort);
+        
         cout << "For target return " << tReturns[i] <<", the actual return is: " << endl;
         Vector actAvgReturn = onePort.getActAvgReturn();
-        cout << actAvgReturn << endl;
+        cout << actAvgReturn;
+        cout << "Sharpe: " << onePort.getSharpe() << " AAR: " << onePort.getAAR() << " Std: " << onePort.getStd() << " CAAR: " << onePort.getCAAR() << endl << endl;
         
         myfile << tReturns[i] << ",";
         for (int j = 0; j < actAvgReturn.size()-1; j++){
