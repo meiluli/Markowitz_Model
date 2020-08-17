@@ -19,7 +19,7 @@ Two files assetsReturns.hpp and assetsReturns.cpp contain 4 classes to perform i
 - Calculate in-sample mean and covariance
 
 ## class OOS: : public virtual AR
-- Calculate out-og-sample mean and covariance
+- Calculate out-of-sample mean and covariance
 
 ## class FTSE: public OOS, public IS
 - Backtesting
