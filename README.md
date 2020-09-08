@@ -1,5 +1,5 @@
 # Markowitz_Model
-"assets_returns.csv"包含了 returns from 83 of the FTSE 100 companies
+"assets_returns.csv"包含了700天FTSE 100中83个公司的收益信息
 
 # Csv
 csv.hpp和csv.cpp两个文件主要实现了读取csv格式文件的功能。
@@ -14,7 +14,7 @@ Matrix.hpp和Matrix.cpp两个文件包含运算符重载函数，以定义与vec
 assetReturns.hpp和assetReturns.cpp两个文件包含4个类，用于执行样本内和样本外计算及回测。
 
 ## class AR
-- 保存通用信息，例如样本内窗口，样本外窗口，滚动窗口，滚动次数窗口，700x100收益矩阵等。
+- 保存通用信息，例如样本内窗口，样本外窗口，滚动窗口，滚动次数窗口，700x83收益矩阵等。
 
 ## class IS: public virtual AR
 - 计算样本内均值和协方差
