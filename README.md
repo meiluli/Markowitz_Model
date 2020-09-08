@@ -1,25 +1,26 @@
 # Markowitz_Model
-Given a file "assets_returns.csv" containing returns from 83 of the FTSE 100 companies
+"assets_returns.csv"包含了 returns from 83 of the FTSE 100 companies
 
 # Csv
-Two files csv.hpp and csv.cpp contain a function that read files in the csv format.
+csv.hpp和csv.cpp两个文件主要实现了读取csv格式文件的功能。
 
 # read_data
-Two files read_data.hpp and read_data.cpp contain a function that saves data into a 2D vector.
+read_data.hpp和read_data.cpp两个文件包含将数据保存到2D vector中的函数。
 
 # Matrix
-Two files Matrix.hpp and Matrix.cpp contain operator overloading functions to define operations related to vector<double> and vector<vector<double>>.
+Matrix.hpp和Matrix.cpp两个文件包含运算符重载函数，以定义与vector<double>和vector<vector<double>>相关的操作。
 
 # assetsReturns
-Two files assetsReturns.hpp and assetsReturns.cpp contain 4 classes to perform in-sample out-of-sample calculations and backtesting.
+assetReturns.hpp和assetReturns.cpp两个文件包含4个类，用于执行样本内和样本外计算及回测。
+
 ## class AR
-- Save common information like isWindow, oosWindow, rollingWindow, rollingTimes, assetsReturns, etc..
+- 保存通用信息，例如样本内窗口，样本外窗口，滚动窗口，滚动次数窗口，700x100收益矩阵等。
 
 ## class IS: public virtual AR
-- Calculate in-sample mean and covariance
+- 计算样本内均值和协方差
 
 ## class OOS: : public virtual AR
-- Calculate out-of-sample mean and covariance
+- 计算样本外均值和协方差
 
 ## class FTSE: public OOS, public IS
-- Backtesting
+- 回测
